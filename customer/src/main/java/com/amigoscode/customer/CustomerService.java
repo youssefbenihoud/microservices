@@ -1,9 +1,14 @@
 package com.amigoscode.customer;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService(CustomerRespository customerRespository) {
+@AllArgsConstructor
+public class CustomerService {
+
+    private final CustomerRespository customerRespository;
+
     public void registerCustomer(CustomerRegistrationRequest registrationRequest){
         Customer customer = Customer.builder()
                 .firstName(registrationRequest.firstName())
